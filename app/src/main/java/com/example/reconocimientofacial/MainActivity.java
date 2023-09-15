@@ -96,8 +96,6 @@ public class MainActivity extends AppCompatActivity {
     public void classifyImage(Bitmap image){
         try {
             Model model = Model.newInstance(getApplicationContext());
-
-            // Creates inputs for reference.
             TensorBuffer inputFeature0 = TensorBuffer.createFixedSize(new int[]{1, 32, 32, 3}, DataType.FLOAT32);
             ByteBuffer byteBuffer = ByteBuffer.allocateDirect(4 * imageSize * imageSize * 3);
             byteBuffer.order(ByteOrder.nativeOrder());
@@ -105,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
             int[] intValues = new int[imageSize * imageSize];
             image.getPixels(intValues, 0, image.getWidth(), 0, 0, image.getWidth(), image.getHeight());
             int pixel = 0;
-            //iterate over each pixel and extract R, G, and B values. Add those values individually to the byte buffer.
+            //itere sobre cada píxel y extraer R, G y B. Agregue esos valores individualmente al búfer de bytes.
             for(int i = 0; i < imageSize; i ++){
                 for(int j = 0; j < imageSize; j++){
                     int val = intValues[pixel++]; // RGB
@@ -117,12 +115,12 @@ public class MainActivity extends AppCompatActivity {
 
             inputFeature0.loadBuffer(byteBuffer);
 
-            // Runs model inference and gets result.
+            // Procesar el modelo y obtener los resultados
             Model.Outputs outputs = model.process(inputFeature0);
             TensorBuffer outputFeature0 = outputs.getOutputFeature0AsTensorBuffer();
 
             float[] confidences = outputFeature0.getFloatArray();
-            // find the index of the class with the biggest confidence.
+            // probabilidades en forma de vector
             int maxPos = 0;
             float maxConfidence = 0;
             for (int i = 0; i < confidences.length; i++) {
@@ -141,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
             String Resultado = maxPos==2?"Raul":"No es Raul";
             result.setText(Resultado);
 
-            // Releases model resources if no longer used.
+            // Cerrar el modelo para desecharlo
             model.close();
         } catch (IOException e) {
             // TODO Handle the exception
