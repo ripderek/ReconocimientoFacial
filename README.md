@@ -32,7 +32,7 @@
 
 #Preparación y entrenamiento de la red neuronal
 <p align="center">
-<img  src="ImagenesEjecucion/Screenshot (1245).png" width="600px" />
+<img  src="ImagenesEjecucion/Screenshot (1245)2.png" width="600px" />
 </p>
 <p align="center">
 <img  src="ImagenesEjecucion/Screenshot (1246).png" width="600px" />
