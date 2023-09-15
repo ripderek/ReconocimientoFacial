@@ -8,6 +8,9 @@
 <p >
   App android 7.0 que reconosca mi rostro (Raul) mediante fotos y la camara, con modelo en python (google colab), y una red neuronal.
 </p>
+<div>
+   <a href="https://colab.research.google.com/drive/1JTozjNk5DIUGIiN0jqAI_ogGYX_2NL1n">Google Colab</a>
+</div>
 
 <div>
 <p align="center">
