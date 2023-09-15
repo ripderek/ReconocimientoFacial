@@ -1,5 +1,5 @@
 # ReconocimientoFacial
-App android 7.0 que recosco mi rostros (Raul) mediante fotos y la camara, con modelo en python (google colab), y una red neuronal.
+App android 7.0 que reconosca mi rostro (Raul) mediante fotos y la camara, con modelo en python (google colab), y una red neuronal.
 
 ### Coello Castillo Raul Steven
 <p align="center">
